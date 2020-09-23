@@ -11,6 +11,7 @@ urlpatterns = [
  #  virtualenv newenv
  #  source newenv/bin/activate
  #  pip install django
+ #  pip install pylint-django
  #  django-admin --version
  #  
  # do commands
