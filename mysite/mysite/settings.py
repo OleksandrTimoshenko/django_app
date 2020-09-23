@@ -86,11 +86,11 @@ DATABASES = {
 """    #   I think about you tomorrow
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'django_db',
         'USER' : 'user_name',
         'PASSWORD' : 'password',
-        'HOST' : '127.0.0.1',
+        'HOST' : 'db',
         'PORT' : '5432',
     }
 }
@@ -128,6 +128,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+ALLOWED_HOSTS = ["0.0.0.0"]
+
 
 
 # Static files (CSS, JavaScript, Images)

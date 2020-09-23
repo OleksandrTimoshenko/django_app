@@ -9,3 +9,18 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=django_db
       - POSTGRES_USER=user_name
+
+  web:
+    build: .
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+# add setup.py to do https://docs.djangoproject.com/en/3.1/intro/tutorial02
+# https://stackoverflow.com/questions/44785585/how-to-delete-all-local-docker-images
+# https://docs.djangoproject.com/en/dev/topics/settings/#envvar-DJANGO_SETTINGS_MODULE
+# https://stackoverflow.com/questions/34114427/django-upgrading-to-1-9-error-appregistrynotready-apps-arent-loaded-yet
