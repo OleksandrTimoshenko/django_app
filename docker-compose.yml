@@ -6,12 +6,18 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=django_db
-      - POSTGRES_USER=user_name
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
 
   web:
     build: ./mysite
+    environment:
+      - DB_NAME=${POSTGRES_DB}
+      - DB_USER=${POSTGRES_USER}
+      - DB_PASSWORD=${POSTGRES_PASSWORD}
+
     command: bash -c "python ./mysite/manage.py migrate && python ./mysite/manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code

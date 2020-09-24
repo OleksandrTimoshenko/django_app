@@ -86,12 +86,12 @@ DATABASES = {
 """    #   I think about you tomorrow
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_db',
-        'USER' : 'user_name',
-        'PASSWORD' : 'password',
-        'HOST' : 'db',
-        'PORT' : '5432',
+        'ENGINE'     : 'django.db.backends.postgresql',
+        'NAME'       : os.getenv('DB_NAME'),
+        'USER'       : os.getenv('DB_USER'),
+        'PASSWORD'   : os.getenv('DB_PASSWORD'),
+        'HOST'       : 'db',
+        'PORT'       : '5432',
     }
 }
 
