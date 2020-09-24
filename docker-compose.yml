@@ -19,11 +19,12 @@ services:
       - DB_PASSWORD=${POSTGRES_PASSWORD}
 
     volumes:
-      - .:/code
+      - ./mysite:/code
     ports:
       - "8000:8000"
     depends_on:
       - db
+    command: ./wait-for-it.sh db:5432 -- ./entrypoint.sh
 
 # add setup.py to do https://docs.djangoproject.com/en/3.1/intro/tutorial02
 # https://stackoverflow.com/questions/44785585/how-to-delete-all-local-docker-images
