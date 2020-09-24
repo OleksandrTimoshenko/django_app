@@ -2,6 +2,8 @@ test Django project
 
 To start app:
 
+Creare .env file which will be used to configure the connection to the database  (you can find samle in .env.samlpe)
+
 docker-compose up
 
 use 
