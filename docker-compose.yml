@@ -11,8 +11,8 @@ services:
       - POSTGRES_USER=user_name
 
   web:
-    build: .
-    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    build: ./mysite
+    command: bash -c "python ./mysite/manage.py migrate && python ./mysite/manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:
