@@ -12,14 +12,14 @@ services:
 
 
   web:
-    build: ./mysite
+    build: ./backend
     environment:
       - DB_NAME=${POSTGRES_DB}
       - DB_USER=${POSTGRES_USER}
       - DB_PASSWORD=${POSTGRES_PASSWORD}
 
     volumes:
-      - ./mysite:/code
+      - ./backend:/code
     ports:
       - "8000:8000"
     depends_on:
