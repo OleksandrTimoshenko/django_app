@@ -9,6 +9,8 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    env_file:
+      - ./.env
 
 
   web:
@@ -17,9 +19,11 @@ services:
       - DB_NAME=${POSTGRES_DB}
       - DB_USER=${POSTGRES_USER}
       - DB_PASSWORD=${POSTGRES_PASSWORD}
+    env_file:
+      - ./.env
 
     volumes:
-      - ./backend:/code
+      - ./backend:/usr/src/app/
     ports:
       - "8000:8000"
     depends_on:
