@@ -1,10 +1,12 @@
+# add containers name
+
 version: "3.7"
 
 services:
   db:
     image: postgres:11-alpine
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - ./postgres_data:/var/lib/postgresql/data/   # use relative path fix problem with creating volemes hor me
     ports:
       - 5432:5432
     environment:
@@ -30,7 +32,8 @@ services:
       - "8000:8000"
     depends_on:
       - db
-    command: ./wait-for-it.sh db:5432 -- ./entrypoint.sh
+    #command: ./wait-for-it.sh db:5432 -- ./entrypoint.sh
+    command: ./entrypoint.sh
 
 volumes:
   postgres_data:

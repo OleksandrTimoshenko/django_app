@@ -12,5 +12,5 @@ COPY ./requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 COPY . .
-RUN apt update && apt install bash-completion
+RUN apt update && apt install bash-completion && apt-get install ncat -y
 CMD [ "./entrypoint.sh" ]
