@@ -84,15 +84,15 @@ DATABASES = {
     }
 }
 
-"""    #   I think about you tomorrow
+"""    
 DATABASES = {
-    'default': {
-        'ENGINE'     : 'django.db.backends.postgresql',
-        'NAME'       : os.getenv('DB_NAME'),
-        'USER'       : os.getenv('DB_USER'),
-        'PASSWORD'   : os.getenv('DB_PASSWORD'),
-        'HOST'       : 'db',
-        'PORT'       : '5432',
+    "default": { # if such env variable existing we must use it and if don`t weuse defoult string
+        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "db.sqlite3")),
+        "USER": os.environ.get("SQL_USER", "user"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
+        "HOST": os.environ.get("SQL_HOST", "localhost"),
+        "PORT": os.environ.get("SQL_PORT", "5432"),
     }
 }
 
