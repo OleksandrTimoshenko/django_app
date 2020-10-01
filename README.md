@@ -2,16 +2,16 @@ test Django project
 
 To start app:
 
-Creare .env file which will be used to configure the connection to the database  (you can find samle in .env.samlpe)
+Creare .env files which will be used to configure the connection to the database  (you can find samle in .env.samlpe)
 
-docker-compose up
+docker-compose -f docker-compose.prod.yml up -d --build
 
 use 
 
-http://0.0.0.0:8000/polls/
+http://localhost:1337/polls/
 
 or 
 
-http://0.0.0.0:8000/admin/
+http://localhost:1337/admin/
 
 to see the application
