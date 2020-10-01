@@ -21,7 +21,7 @@ RUN pip install --upgrade pip
 #RUN sleep 360
 RUN pip install flake8
 COPY . .
-RUN flake8 --ignore=E501,F401,E303,W292,W291,E261 ./project
+RUN flake8 --ignore=E501,F401,E303,W292,W291,E261,W391  ./project
 
 # install dependencies
 COPY ./requirements.txt .
