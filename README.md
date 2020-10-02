@@ -15,3 +15,9 @@ or
 http://localhost:1337/admin/
 
 to see the application
+
+or
+
+http://localhost:1337
+
+to upload your file 

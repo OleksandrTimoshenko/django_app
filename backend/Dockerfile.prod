@@ -18,10 +18,9 @@ RUN apk update \
 
 # lint
 RUN pip install --upgrade pip
-#RUN sleep 360
 RUN pip install flake8
 COPY . .
-RUN flake8 --ignore=E501,F401,E303,W292,W291,E261,W391  ./project
+RUN flake8 --ignore=E501,F401,E303,W292,W291,E261,W391,W293  ./project
 
 # install dependencies
 COPY ./requirements.txt .
@@ -46,6 +45,7 @@ ENV HOME=/home/app
 ENV APP_HOME=/home/app/web
 RUN mkdir $APP_HOME
 RUN mkdir $APP_HOME/staticfiles
+RUN mkdir $APP_HOME/mediafiles
 WORKDIR $APP_HOME
 
 # install dependencies
@@ -69,6 +69,10 @@ RUN chown -R app:app $APP_HOME
 USER app
 
 RUN chown -R app:app $APP_HOME/staticfiles
+
+USER root
+
+RUN chown -R 777 $APP_HOME/mediafiles
 
 # run entrypoint.prod.sh
 ENTRYPOINT ["/home/app/web/entrypoint.prod.sh"]
